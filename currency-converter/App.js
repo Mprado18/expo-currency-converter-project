@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { PickerComponent } from './components/picker';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Selecione sua moeda</Text>
+          <PickerComponent />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#101215',
+    paddingTop: 40,
     alignItems: 'center',
-    justifyContent: 'center',
   },
+  titleContainer: {
+    backgroundColor: '#f9f9f9',
+    width: '90%',
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    padding: 8
+  },
+  title: {
+    fontSize: 16,
+    color: '#000',
+    fontWeight: '500',
+    paddingTop: 6,
+    paddingLeft: 6
+  }
 });
